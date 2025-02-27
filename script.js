@@ -27,3 +27,25 @@ function getGrade(score) {
 function hasPassingGrade(score) {
   return getGrade(score) !== 'F';
 }
+
+function studentMsg(totalScores, studentScore) {
+  const classAverage = getAverage(totalScores);
+  const studentGrade = getGrade(studentScore);
+  if (hasPassingGrade(studentScore)) {
+    return (
+      'Class average: ' +
+      classAverage +
+      '. Your grade: ' +
+      studentGrade +
+      '. You passed the course.'
+    );
+  }
+  return (
+    'Class average: ' +
+    classAverage +
+    '. Your grade: ' +
+    studentGrade +
+    '. You failed the course.'
+  );
+}
+console.log(studentMsg([92, 88, 12, 77, 57, 100, 67, 38, 97, 89], 100));
